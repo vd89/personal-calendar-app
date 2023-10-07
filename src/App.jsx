@@ -1,11 +1,12 @@
 
 import './App.css'
+import Landing from './components/pages/Landing'
 
 function App() {
 
   return (
     <>
-      <h1>hello world</h1>
+      <Landing/>
     </>
   )
 }
