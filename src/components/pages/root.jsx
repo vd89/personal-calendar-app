@@ -1,13 +1,24 @@
-import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
 import Landing from './Landing'
 import ErrorRouter from './ErrorRouter'
+import Profile from './Profile'
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />,
-    errorElement: <ErrorRouter />,
-  },
-  {}
-])
+export const publicRoute = () => {
+  return [
+    {
+      path: "/",
+      element: <Landing />,
+      errorElement: <ErrorRouter />,
+    },
+
+  ]
+}
+export const privateRoute = () => {
+
+  return [
+    {
+      path: "/profile",
+      element: <Profile />,
+      errorElement: <ErrorRouter />,
+    },
+  ]
+}

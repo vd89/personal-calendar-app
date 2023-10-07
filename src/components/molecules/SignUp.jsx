@@ -24,7 +24,7 @@ const SignUp = props => {
               </div>
               <input type="submit" value="Login" className="btn solid" />
               <p className="social-text">Or sign in with social platforms</p>
-
+              {console.log("admin", user)}
               <div className="social-media">
                   {/* add google oauth  */}
                   <button onClick={googleLogin} className="social-icon">
