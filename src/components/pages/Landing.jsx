@@ -5,6 +5,7 @@ import SignUp from '../molecules/SignUp'
 import PanelMolecule from '../molecules/PanelMolecule'
 
 const Landing = (props) => {
+
   const [isActive, setIsActive] = useState(false)
   const isRegisterCheck = () => {
     setIsActive(!isActive)
