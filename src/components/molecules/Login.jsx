@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useGoogleLogin } from '@react-oauth/google';
 
 const Login = props => {
+    const [user, setUser] = useState([])
+    const googleLogin = useGoogleLogin({
+        onSuccess: (codeResponse) => setUser(codeResponse),
+        onError: (error) => console.log('Login Failed:', error)
+    });
+
+    console.log("user", user)
     return (
         <div>
             <form className="sign-up-form">
@@ -23,9 +31,9 @@ const Login = props => {
                 <p className="social-text">Or sign up with social platforms</p>
 
                 <div className="social-media">
-                    <a href="#" className="social-icon">
+                    <button onClick={googleLogin} className="social-icon">
                         <i className='bx bxl-google'></i>
-                    </a>
+                    </button>
                     <a href="#" className="social-icon">
                         <i className='bx bxl-microsoft'></i>
                     </a>
