@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 
 const SignUp = props => {
-    const [user, setUser] = useState([])
-    const googleLogin = useGoogleLogin({
-        onSuccess: (codeResponse) => setUser(codeResponse),
-        onError: (error) => console.log('Login Failed:', error)
-    });
+    // const [user, setUser] = useState([])
+    // const googleLogin = useGoogleLogin({
+    //     onSuccess: (codeResponse) => setUser(codeResponse),
+    //     onError: (error) => console.log('Login Failed:', error)
+    // });
 
-    console.log("user", user)
+    // console.log("user", user)
   return (
       <>
           <form className="sign-in-form">
@@ -24,12 +24,16 @@ const SignUp = props => {
               </div>
               <input type="submit" value="Login" className="btn solid" />
               <p className="social-text">Or sign in with social platforms</p>
-              {console.log("admin", user)}
               <div className="social-media">
                   {/* add google oauth  */}
-                  <button onClick={googleLogin} className="social-icon">
-                      <i className='bx bxl-google'></i>
-                  </button>
+                  <GoogleLogin
+                      onSuccess={credentialResponse => {
+                          console.log("token", credentialResponse);
+                      }}
+                      onError={() => {
+                          console.log('Login Failed');
+                      }}
+                  />;
                   <a href="#" className="social-icon">
                       <i className='bx bxl-microsoft'></i>
                   </a>
