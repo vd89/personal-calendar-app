@@ -6,6 +6,7 @@ import RightImg from '../../assets/Authentication_Outline.png'
 
 const PanelMolecule = props => {
 
+    const { isRegisterCheck } = props
 
     return (
         <>
@@ -13,8 +14,7 @@ const PanelMolecule = props => {
                 <div className="panel left-panel">
                     <div className="content">
                         <h3>New here?</h3>
-
-                        <button className="btn transparent" id="sign-up-btn">Sign up</button>
+                        <button className="btn transparent" onClick={() => isRegisterCheck()} id="sign-up-btn">Register User </button>
                     </div>
                     <img src={LeftImg} className="image" alt="" />
                 </div>
@@ -24,7 +24,7 @@ const PanelMolecule = props => {
                         <p>
                             Login Using Your Credentials
                         </p>
-                        <button className="btn transparent" id="sign-in-btn">Sign in</button>
+                        <button className="btn transparent" onClick={() => isRegisterCheck()} id="sign-in-btn">Login User</button>
                     </div>
                     <img src={RightImg} className="image" alt="" />
                 </div>
@@ -34,7 +34,7 @@ const PanelMolecule = props => {
 }
 
 PanelMolecule.propTypes = {
-
+    isRegisterCheck: PropTypes.func
 }
 
 export default PanelMolecule
