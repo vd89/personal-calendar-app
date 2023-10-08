@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Login from '../molecules/Login'
-import SignUp from '../molecules/SignUp'
+import Login from '../molecules/RegisterUSer'
+import SignUp from '../molecules/LoginUser'
 import PanelMolecule from '../molecules/PanelMolecule'
 
 const Landing = (props) => {

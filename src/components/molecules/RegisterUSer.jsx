@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { GoogleLogin, useGoogleLogin, useGoogleOneTapLogin } from '@react-oauth/google';
+import { GoogleLogin, } from '@react-oauth/google';
 import { logOut } from '../../helper/google.helper';
 
 const Login = props => {
-    // const [user, setUser] = useState([])
-    // const googleLogin = useGoogleLogin({
-    //     onSuccess: async tokenResponse => await console.log(tokenResponse),
-    //     // onSuccess: (codeResponse) => console.log(codeResponse),
-    //     onError: (error) => console.log('Login Failed:', error)
-    // });
+    const [user, setUser] = useState({})
 
     return (
         <div>
@@ -36,9 +31,7 @@ const Login = props => {
                         <i className='bx bxl-google'></i>
                     </button> */}
                     <GoogleLogin
-                        onSuccess={credentialResponse => {
-                            console.log("token", credentialResponse);
-                        }}
+                        onSuccess={credentialResponse => setUser(credentialResponse)}
                         onError={() => {
                             console.log('Login Failed');
                         }}
