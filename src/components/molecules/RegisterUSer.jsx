@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { GoogleLogin, useGoogleLogin, useGoogleOneTapLogin } from '@react-oauth/google';
+import { GoogleLogin, } from '@react-oauth/google';
 import { logOut } from '../../helper/google.helper';
+import axios from 'axios';
+import jwt_decode from "jwt-decode";
+import { OAuth2Client } from 'google-auth-library';
 
 const Login = props => {
-    // const [user, setUser] = useState([])
-    // const googleLogin = useGoogleLogin({
-    //     onSuccess: async tokenResponse => await console.log(tokenResponse),
-    //     // onSuccess: (codeResponse) => console.log(codeResponse),
-    //     onError: (error) => console.log('Login Failed:', error)
-    // });
+    const [user, setUser] = useState({})
+
+    const getDecodedOAuthJwtGoogle = async token => {
+
+
+        const onSuccessHandler = async (_credential) => {
+
+        }
 
     return (
         <div>
@@ -36,9 +41,7 @@ const Login = props => {
                         <i className='bx bxl-google'></i>
                     </button> */}
                     <GoogleLogin
-                        onSuccess={credentialResponse => {
-                            console.log("token", credentialResponse);
-                        }}
+                        onSuccess={credentialResponse => onSuccessHandler(credentialResponse)}
                         onError={() => {
                             console.log('Login Failed');
                         }}
